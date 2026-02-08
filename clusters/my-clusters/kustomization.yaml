@@ -4,3 +4,4 @@ resources:
 - infrastructure/calico/kustomization.yaml
 - infrastructure/kyverno/kustomization.yaml
 - infrastructure/istio/kustomization.yaml
+- apps/nginx
