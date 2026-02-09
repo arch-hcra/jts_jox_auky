@@ -13,7 +13,7 @@ spec:
   chart:
     spec:
       chart: base
-      version: 1.20.0
+      version: 1.21.4
       sourceRef:
         kind: HelmRepository
         name: istio
@@ -29,15 +29,13 @@ spec:
   chart:
     spec:
       chart: istiod
-      version: 1.20.0
+      version: 1.21.4
       sourceRef:
         kind: HelmRepository
         name: istio
         namespace: flux-system
   interval: 10m
-  values:
-    telemetry:
-      enabled: true
+
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
@@ -46,4 +44,5 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h
-  url: https://istio-release.storage.googleapis.com/charts
+  url: https://istio.io/charts
+
