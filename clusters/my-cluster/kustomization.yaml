@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - flux-system/kustomization.yaml
-  - infrastructure/istio
-  - infrastructure/calico
-  - infrastructure/kyverno
-  - apps/nginx
+  - infrastructure/istio/kustomization.yaml
+  - infrastructure/calico/kustomization.yaml
+  - infrastructure/kyverno/kustomization.yaml
+  - apps/nginx/kustomization.yaml
