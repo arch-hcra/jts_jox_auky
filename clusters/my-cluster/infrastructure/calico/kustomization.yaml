@@ -1,6 +1,8 @@
 
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+metadata:
+  name: calico
 resources:
 
   - https://github.com/projectcalico/calico/releases/download/v3.27.2/tigera-operator.yaml
