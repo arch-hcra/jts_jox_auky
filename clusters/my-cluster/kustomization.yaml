@@ -5,4 +5,5 @@ resources:
   - infrastructure/istio/kustomization.yaml
   - infrastructure/calico/kustomization.yaml
   - infrastructure/kyverno/kustomization.yaml
-  - apps/nginx/kustomization.yaml
+  - infrastructure/nginx/kustomization.yaml
+  - infrastructure/external-dns/kustomization.yaml
