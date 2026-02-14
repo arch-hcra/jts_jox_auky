@@ -3,10 +3,10 @@ kind: Kustomization
 metadata:
   name: calico
 resources:
-  - https://github.com/projectcalico/calico/releases/download/v3.27.2/tigera-operator.yaml
+  - github.com/projectcalico/calico/releases/download/v3.27.2/tigera-operator.yaml?ref=v3.27.2
 namespace: tigera-operator
 
-patches: 
+patches:
   - target:
       kind: Deployment
       name: tigera-operator

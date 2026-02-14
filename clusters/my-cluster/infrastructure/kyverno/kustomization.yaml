@@ -3,7 +3,7 @@ kind: Kustomization
 metadata:
   name: kyverno
 resources:
-  - https://github.com/kyverno/kyverno/releases/download/v1.10.6/kyverno.yaml
+  - github.com/kyverno/kyverno/releases/download/v1.10.6/kyverno.yaml
 namespace: kyverno
 
 patchesStrategicMerge:

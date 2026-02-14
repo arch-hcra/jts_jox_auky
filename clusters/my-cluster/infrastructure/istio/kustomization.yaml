@@ -5,7 +5,7 @@ metadata:
 namespace: istio-operator
 
 resources:
-  - https://github.com/istio/istio/releases/download/1.20.3/istio-operator.yaml
+  - github.com/istio/istio/releases/download/1.20.3/istio-operator.yaml
 
 configMapGenerator:
   - name: istio-config
