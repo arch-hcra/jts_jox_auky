@@ -1,31 +1,23 @@
-
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 metadata:
   name: calico
 resources:
-
   - https://github.com/projectcalico/calico/releases/download/v3.27.2/tigera-operator.yaml
-
 namespace: tigera-operator
 
-
-patchesStrategicMerge:
-  - |-
-    apiVersion: apps/v1
-    kind: Deployment
-    metadata:
+patches: 
+  - target:
+      kind: Deployment
       name: tigera-operator
       namespace: tigera-operator
-    spec:
-      template:
-        spec:
-          containers:
-          - name: tigera-operator
-            resources:
-              requests:
-                memory: "150Mi"
-                cpu: "100m"
-              limits:
-                memory: "300Mi"
-                cpu: "500m"
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/resources
+        value:
+          requests:
+            memory: "150Mi"
+            cpu: "100m"
+          limits:
+            memory: "300Mi"
+            cpu: "500m"
