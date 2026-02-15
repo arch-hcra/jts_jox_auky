@@ -22,7 +22,7 @@ spec:
         args:
         - --source=service
         - --source=ingress
-        - --provider=inmemory
+        - --provider=icoredns
         - --domain-filter=my-test.local
         - --registry=txt
         - --txt-owner-id=my-cluster
