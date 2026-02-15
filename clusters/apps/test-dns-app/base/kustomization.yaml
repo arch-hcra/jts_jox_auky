@@ -1,5 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
- # - ./ingress-nginx
-  - ./external-dns
+- deployment.yaml
+- service.yaml
+commonLabels:
+  app: test-dns-app
