@@ -4,6 +4,7 @@ metadata:
   name: test-dns-app
   annotations:
     external-dns.alpha.kubernetes.io/hostname: test.my-test.local
+    external-dns.alpha.kubernetes.io/target: 93.183.71.214
 spec:
   type: ClusterIP
   ports:
