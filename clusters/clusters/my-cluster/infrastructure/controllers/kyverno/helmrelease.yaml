@@ -18,16 +18,15 @@ spec:
     cleanupJobs:
       admissionReports:
         image:
-          repository: docker.io/kyverno/kyverno-cli
-          tag: v1.11.4
-        tolerations:
-          - key: node-role.kubernetes.io/control-plane
-            operator: Exists
-            effect: NoSchedule
-      clusterAdmissionReports:
-        image:
-          repository: docker.io/kyverno/kyverno-cli
-          tag: v1.11.4
+          registry: ghcr.io
+          repository: bitnami/kubectl
+          tag: 1.28.5
+    clusterAdmissionReports:
+      image:
+        registry: ghcr.io
+        repository: bitnami/kubectl
+        tag: 1.28.5
+
         tolerations:
           - key: node-role.kubernetes.io/control-plane
             operator: Exists
