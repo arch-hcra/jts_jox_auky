@@ -1,8 +1,8 @@
-+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: calico
-  namespace: flux-system 
+  namespace: kube-system
 spec:
   interval: 1m
   releaseName: calico
@@ -11,20 +11,19 @@ spec:
   chart:
     spec:
       chart: tigera-operator
-      version: "v3.28.0"
+      version: v3.28.0
       sourceRef:
         kind: HelmRepository
         name: calico
         namespace: flux-system
-
   values:
     installation:
-      kubernetesProvider: ""
-      cni:
-        type: Calico
       calicoNetwork:
-        bgp: Disabled              
+        bgp: Disabled
         mtu: 1450
         ipPools:
           - cidr: 10.244.0.0/16
             encapsulation: VXLAN
+      cni:
+        type: Calico
+      kubernetesProvider: ""
