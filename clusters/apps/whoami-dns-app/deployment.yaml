@@ -1,17 +1,20 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: whoami-dns-app
+  namespace: default
 spec:
   replicas: 1
   selector:
-    matchLabels: { app: whoami-dns-app }
+    matchLabels:
+      app: whoami-dns-app
   template:
     metadata:
-      labels: { app: whoami-dns-app }
+      labels:
+        app: whoami-dns-app
     spec:
       containers:
-      - name: whoami
-        image: jwilder/whoami
-        ports: [{ containerPort: 80 }]
+        - name: whoami-dns-app
+          image: nginx:alpine
+          ports:
+            - containerPort: 80

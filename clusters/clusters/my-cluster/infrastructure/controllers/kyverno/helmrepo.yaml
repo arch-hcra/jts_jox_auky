@@ -1,9 +1,8 @@
-
-apiVersion: source.toolkit.fluxcd.io/v1beta2
+apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: kyverno
   namespace: kyverno
 spec:
-  type: oci
-  url: oci://ghcr.io/kyverno/charts
+  interval: 5m
+  url: https://kyverno.github.io/kyverno/

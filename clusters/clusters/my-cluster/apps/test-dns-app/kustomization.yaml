@@ -3,11 +3,3 @@ kind: Kustomization
 namespace: default
 resources:
   - ../../../../apps/test-dns-app
-
-patches:
-  - target: { kind: Service, name: test-dns-app }
-    patch: |-
-      - op: add
-        path: /metadata/annotations
-        value:
-          external-dns.alpha.kubernetes.io/hostname: test.my-test.local
