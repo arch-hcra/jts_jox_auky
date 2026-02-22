@@ -12,3 +12,23 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: kyverno
+
+
+  values:
+    cleanupJobs:
+      admissionReports:
+        image:
+          repository: ghcr.io/kyverno/kyverno-cli
+          tag: v1.11.4
+        tolerations:
+          - key: node-role.kubernetes.io/control-plane
+            operator: Exists
+            effect: NoSchedule
+      clusterAdmissionReports:
+        image:
+          repository: ghcr.io/kyverno/kyverno-cli
+          tag: v1.11.4
+        tolerations:
+          - key: node-role.kubernetes.io/control-plane
+            operator: Exists
+            effect: NoSchedule
