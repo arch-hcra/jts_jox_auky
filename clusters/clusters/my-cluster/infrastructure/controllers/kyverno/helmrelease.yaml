@@ -20,9 +20,8 @@ spec:
         enabled: false
       clusterAdmissionReports:
         enabled: false
+  
     hooks:
       post:
-        image:
-          registry: docker.io
-          repository: rancher/kubectl
-          tag: v1.28.5
+        enabled: false
+
