@@ -1,3 +1,5 @@
+
+
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -12,7 +14,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: kyverno
-
+        namespace: kyverno
 
   values:
     cleanupJobs:
@@ -21,14 +23,24 @@ spec:
           registry: ghcr.io
           repository: bitnami/kubectl
           tag: 1.28.5
-    clusterAdmissionReports:
-      image:
-        registry: ghcr.io
-        repository: bitnami/kubectl
-        tag: 1.28.5
-
+        tolerations:
+          - key: node-role.kubernetes.io/control-plane
+            operator: Exists
+            effect: NoSchedule
+      clusterAdmissionReports:
+        image:
+          registry: ghcr.io
+          repository: bitnami/kubectl
+          tag: 1.28.5
         tolerations:
           - key: node-role.kubernetes.io/control-plane
             operator: Exists
             effect: NoSchedule
 
+    
+    hooks:
+      post:
+        image:
+          registry: ghcr.io
+          repository: bitnami/kubectl
+          tag: 1.28.5
