@@ -7,17 +7,15 @@ spec:
   interval: 1m
   releaseName: kyverno
   targetNamespace: kyverno
-  createNamespace: true
   chart:
     spec:
       chart: kyverno
-      version: "3.2.4"   
+      version: v3.1.4
       sourceRef:
         kind: HelmRepository
         name: kyverno
         namespace: flux-system
   values:
-
     crds:
       install: true
     admissionController:
