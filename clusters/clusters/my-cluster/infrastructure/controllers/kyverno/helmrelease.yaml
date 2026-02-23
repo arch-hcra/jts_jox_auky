@@ -1,4 +1,3 @@
-
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -20,8 +19,5 @@ spec:
         enabled: false
       clusterAdmissionReports:
         enabled: false
-  
     hooks:
-      post:
-        enabled: false
-
+      enabled: false
