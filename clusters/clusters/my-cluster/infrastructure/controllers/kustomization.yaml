@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - calico
   - kyverno
+  - istio-operator
