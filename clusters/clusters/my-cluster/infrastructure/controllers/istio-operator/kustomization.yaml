@@ -5,3 +5,4 @@ resources:
   - helmrelease.yaml
   - istio-install.yaml
   - namespace.yaml
+  - istio-crds-kustomization.yaml
