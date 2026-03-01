@@ -8,6 +8,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./clusters/clusters/my-cluster/infrastructure/controllers/istio-operator/crds
+  path: ./clusters/clusters/my-cluster/infrastructure/controllers/istio-operator/crd
   prune: true
   wait: true
