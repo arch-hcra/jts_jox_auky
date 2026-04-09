@@ -13,4 +13,4 @@ spec:
         name: istio
   interval: 10m
   install:
-    crds: CreateReplac
+    crds: CreateReplace
