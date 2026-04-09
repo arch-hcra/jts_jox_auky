@@ -4,5 +4,5 @@ metadata:
   name: istio
   namespace: flux-system
 spec:
-  url: https://istio.release.storage.googleapis.com/charts
+  url: https://istio-release.storage.googleapis.com/charts
   interval: 10m
