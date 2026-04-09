@@ -14,11 +14,11 @@ spec:
         kind: HelmRepository
         name: istio
         namespace: flux-system
+  install:
+    timeout: 10m
   values:
-    gateway:
-      name: istio-ingressgateway
-      service:
-        type: NodePort
+    service:
+      type: NodePort
       resources:
         requests:
           cpu: 50m
