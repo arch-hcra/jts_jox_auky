@@ -5,3 +5,4 @@ resources:
   - helmrelease.yaml
   - istiod.yaml
   - istio-ingress.yaml
+  - namespace.yaml

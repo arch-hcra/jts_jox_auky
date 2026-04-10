@@ -4,13 +4,17 @@ metadata:
   name: istio-base
   namespace: flux-system
 spec:
+  interval: 5m
+  targetNamespace: istio-system
   chart:
     spec:
       chart: base
-      version: "1.21.2"
+      version: "1.22.3"
       sourceRef:
         kind: HelmRepository
         name: istio
-  interval: 10m
+        namespace: flux-system
   install:
+    crds: CreateReplace
+  upgrade:
     crds: CreateReplace

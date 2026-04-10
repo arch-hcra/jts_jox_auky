@@ -6,11 +6,15 @@ metadata:
 spec:
   interval: 5m
   targetNamespace: istio-system
+  dependsOn:
+    - name: istiod
+      namespace: flux-system
   chart:
     spec:
       chart: gateway
-      version: "1.21.2"
+      version: "1.22.3"
       sourceRef:
         kind: HelmRepository
         name: istio
         namespace: flux-system
+  values: {}
