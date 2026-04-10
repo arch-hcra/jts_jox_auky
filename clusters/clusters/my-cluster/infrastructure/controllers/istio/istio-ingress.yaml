@@ -15,15 +15,17 @@ spec:
         name: istio
         namespace: flux-system
   values:
-    labels:
-      app: istio-ingressgateway
-      istio: ingressgateway
     service:
       type: NodePort
       ports:
-      - name: http
-        port: 80
-        targetPort: 8080
-      - name: https
-        port: 443
-        targetPort: 8443
+        - name: http2
+          port: 80
+          targetPort: 8080
+          protocol: TCP
+        - name: https
+          port: 443
+          targetPort: 8443
+          protocol: TCP
+    labels:
+      app: istio-ingressgateway
+      istio: ingressgateway
