@@ -4,18 +4,36 @@ metadata:
   name: istio-ingress
   namespace: flux-system
 spec:
-  interval: 1m
+  interval: 5m
+  targetNamespace: istio-system
+  dependsOn:
+    - name: istiod
+      namespace: flux-system
   chart:
     spec:
       chart: gateway
       version: "1.22.3"
       sourceRef:
         kind: HelmRepository
-        name: istio-official
+        name: istio
         namespace: flux-system
-  install:
-    disableSchemaValidation: true
-  upgrade:
-    disableSchemaValidation: true
-  values: {}
-  
+  values:
+    autoscaling:
+      enabled: false
+    replicaCount: 1
+
+    service:
+      type: NodePort
+      annotations: {} 
+
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 500m
+        memory: 512Mi
+
+    labels:
+      app: istio-ingress
+    tolerations: []
