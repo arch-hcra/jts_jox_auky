@@ -15,6 +15,5 @@ spec:
         name: istio
         namespace: flux-system
   values:
-    name: istio-ingressgateway
-    labels:
-      app: istio-ingressgateway
+    defaults:
+      name: istio-ingressgateway
