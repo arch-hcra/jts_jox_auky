@@ -19,6 +19,5 @@ spec:
         namespace: flux-system
   values:
     pilot:
-      autoscaleEnabled: true
-      autoscaleMin: 1
-      autoscaleMax: 5
+      autoscaleEnabled: false
+      replicaCount: 1
