@@ -17,15 +17,15 @@ spec:
   values:
     service:
       type: NodePort
-      ports:
-        - name: http2
-          port: 80
-          targetPort: 8080
-          protocol: TCP
-        - name: https
-          port: 443
-          targetPort: 8443
-          protocol: TCP
-    labels:
+    servicePorts:
+      - name: http2
+        port: 80
+        targetPort: 8080
+        protocol: TCP
+      - name: https
+        port: 443
+        targetPort: 8443
+        protocol: TCP
+    serviceLabels:
       app: istio-ingressgateway
       istio: ingressgateway
