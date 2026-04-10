@@ -15,7 +15,7 @@ spec:
       version: "1.22.3"
       sourceRef:
         kind: HelmRepository
-        name: istio
+        name: helmrepo
         namespace: flux-system
   values:
     pilot:
