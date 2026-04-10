@@ -5,3 +5,5 @@ resources:
   - istiod.yaml
   - istio-ingress.yaml
   - namespace.yaml
+  - istio-base.yaml
+  - IstioOperator.yaml

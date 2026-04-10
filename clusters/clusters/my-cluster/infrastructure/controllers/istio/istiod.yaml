@@ -6,6 +6,9 @@ metadata:
 spec:
   interval: 5m
   targetNamespace: istio-system
+  dependsOn:
+    - name: istio-base
+      namespace: flux-system
   chart:
     spec:
       chart: istiod
@@ -14,14 +17,3 @@ spec:
         kind: HelmRepository
         name: istio
         namespace: flux-system
-  values:
-    pilot:
-      autoscaleEnabled: false
-      replicaCount: 1
-      resources:
-        requests:
-          cpu: 100m
-          memory: 256Mi
-        limits:
-          cpu: 500m
-          memory: 512Mi
