@@ -4,17 +4,18 @@ metadata:
   name: istio-ingress
   namespace: flux-system
 spec:
-  interval: 5m
-  targetNamespace: istio-system
-  dependsOn:
-    - name: istiod
-      namespace: flux-system
+  interval: 1m
   chart:
     spec:
       chart: gateway
       version: "1.22.3"
       sourceRef:
         kind: HelmRepository
-        name: istio
+        name: istio-official
         namespace: flux-system
+  install:
+    disableSchemaValidation: true
+  upgrade:
+    disableSchemaValidation: true
   values: {}
+  
