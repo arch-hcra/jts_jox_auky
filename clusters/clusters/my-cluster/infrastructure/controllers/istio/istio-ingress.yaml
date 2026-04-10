@@ -14,4 +14,7 @@ spec:
         kind: HelmRepository
         name: istio
         namespace: flux-system
-  values: {}
+  values:
+    name: istio-ingressgateway
+    labels:
+      app: istio-ingressgateway
