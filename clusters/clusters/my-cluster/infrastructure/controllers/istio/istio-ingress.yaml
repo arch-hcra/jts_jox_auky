@@ -14,17 +14,16 @@ spec:
         kind: HelmRepository
         name: istio
         namespace: flux-system
-  install:
-    timeout: 10m
   values:
     labels:
       app: istio-ingressgateway
       istio: ingressgateway
-    resources:
-      requests:
-        cpu: 50m
-        memory: 64Mi
-      limits:
-        cpu: 200m
-        memory: 128Mi
-
+    service:
+      type: NodePort
+      ports:
+      - name: http
+        port: 80
+        targetPort: 8080
+      - name: https
+        port: 443
+        targetPort: 8443
