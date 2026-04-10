@@ -1,4 +1,3 @@
-# clusters/prod/istio/gateway-hr.yaml
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -19,15 +18,16 @@ spec:
         name: istio
         namespace: flux-system
   values:
-    replicaCount: 1
-    autoscaling:
-      enabled: false
+    defaults:
+      replicaCount: 1
+      autoscaling:
+        enabled: false
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 500m
+          memory: 512Mi
     service:
       type: NodePort
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 250m
-        memory: 256Mi
