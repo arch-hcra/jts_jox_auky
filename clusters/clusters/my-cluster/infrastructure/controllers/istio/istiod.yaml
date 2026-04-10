@@ -6,13 +6,10 @@ metadata:
 spec:
   interval: 5m
   targetNamespace: istio-system
-  dependsOn:
-    - name: istio-base
-      namespace: flux-system
   chart:
     spec:
       chart: istiod
-      version: "1.22.3"
+      version: "1.23.0"
       sourceRef:
         kind: HelmRepository
         name: istio
@@ -26,5 +23,5 @@ spec:
           cpu: 100m
           memory: 256Mi
         limits:
-          cpu: 250m
+          cpu: 500m
           memory: 512Mi
