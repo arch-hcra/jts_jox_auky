@@ -18,22 +18,16 @@ spec:
         name: istio
         namespace: flux-system
   values:
-    autoscaling:
-      enabled: false
-    replicaCount: 1
-
-    service:
-      type: NodePort
-      annotations: {} 
-
-    resources:
-      requests:
-        cpu: 100m
-        memory: 128Mi
-      limits:
-        cpu: 500m
-        memory: 512Mi
-
-    labels:
-      app: istio-ingress
-    tolerations: []
+    defaults:
+      autoscaling:
+        enabled: false
+      replicaCount: 1
+      service:
+        type: NodePort
+      resources:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+        limits:
+          cpu: 500m
+          memory: 512Mi
