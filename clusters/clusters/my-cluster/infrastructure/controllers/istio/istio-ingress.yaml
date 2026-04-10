@@ -17,12 +17,16 @@ spec:
   install:
     timeout: 10m
   values:
-    service:
-      type: NodePort
-      resources:
-        requests:
-          cpu: 50m
-          memory: 64Mi
-        limits:
-          cpu: 200m
-          memory: 128Mi
+    labels:
+      app: istio-ingressgateway
+      istio: ingressgateway
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        cpu: 200m
+        memory: 128Mi
+    serviceAnnotations: {}
+    nodeSelector: {}
+    tolerations: []
