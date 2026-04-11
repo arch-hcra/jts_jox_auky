@@ -24,4 +24,7 @@ spec:
   upgrade:
     remediation:
       retries: 3
-  values: {}
+  values:
+    image:
+      repository: istio/proxyv2
+      tag: 1.18.2
