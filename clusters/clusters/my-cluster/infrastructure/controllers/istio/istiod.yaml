@@ -15,7 +15,10 @@ spec:
         kind: HelmRepository
         name: istio
         namespace: flux-system
+  targetNamespace: istio-system
+  releaseName: istiod
   install:
+    createNamespace: false
     remediation:
       retries: 3
   upgrade:
@@ -23,14 +26,14 @@ spec:
       retries: 3
   values:
     pilot:
-      autoscaleEnabled: false          # для лабы хватит 1 реплики
-      resources:
-        requests:
-          cpu: 100m
-          memory: 128Mi
-        limits:
-          cpu: 250m
-          memory: 256Mi
+      autoscaleEnabled: false
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     global:
       proxy:
         resources:

@@ -13,7 +13,10 @@ spec:
         kind: HelmRepository
         name: istio
         namespace: flux-system
+  targetNamespace: istio-system
+  releaseName: istio-base
   install:
+    createNamespace: false
     remediation:
       retries: 3
   upgrade:
