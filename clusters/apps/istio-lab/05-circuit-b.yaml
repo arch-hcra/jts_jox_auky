@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: cb-b
+  namespace: istio-lab
+spec:
+  host: svc-b
+  trafficPolicy:
+    connectionPool:
+      tcp:  {maxConnections: 1}
+      http: {http1MaxPendingRequests: 1, maxRequestsPerConnection: 1}
+    outlierDetection:
+      consecutiveErrors: 1
+      interval: 30s
+      baseEjectionTime: 30s

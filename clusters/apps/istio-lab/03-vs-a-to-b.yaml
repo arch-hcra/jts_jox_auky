@@ -1,0 +1,27 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: a-to-b
+  namespace: istio-lab
+spec:
+  hosts:
+  - svc-b
+  http:
+  - route:
+    - destination: {host: svc-b, subset: v1}
+      weight: 50
+    - destination: {host: svc-b, subset: v2}
+      weight: 50
+---
+apiVersion: networking.istio.io/v1beta1
+kind: DestinationRule
+metadata:
+  name: svc-b
+  namespace: istio-lab
+spec:
+  host: svc-b
+  subsets:
+  - name: v1
+    labels: {version: v1}
+  - name: v2
+    labels: {version: v2}

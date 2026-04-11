@@ -1,0 +1,28 @@
+apiVersion: networking.istio.io/v1beta1
+kind: EnvoyFilter
+metadata:
+  name: ratelimit-c
+  namespace: istio-lab
+spec:
+  workloadSelector:
+    labels: {app: svc-c}
+  configPatches:
+  - applyTo: HTTP_FILTER
+    match:
+      context: SIDECAR_INBOUND
+      listener: {portNumber: 8080}
+    patch:
+      operation: INSERT_BEFORE
+      value:
+        name: envoy.filters.http.local_ratelimit
+        typed_config:
+          "@type": type.googleapis.com/udpa.type.v1.TypedStruct
+          type_url: type.googleapis.com/envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit
+          value:
+            stat_prefix: c_rl
+            token_bucket:
+              max_tokens: 10
+              tokens_per_fill: 10
+              fill_interval: 1s
+            filter_enabled:  {default_value: true}
+            filter_enforced: {default_value: true}

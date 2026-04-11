@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-c
+  namespace: istio-lab
+spec:
+  ports:
+  - port: 8080
+    name: http
+  selector: {app: svc-c}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: svc-c
+  namespace: istio-lab
+spec:
+  replicas: 1
+  selector:
+    matchLabels: {app: svc-c}
+  template:
+    metadata:
+      labels: {app: svc-c}
+    spec:
+      containers:
+      - name: echo
+        image: mendhak/http-https-echo:29
+        env:
+        - name: PORT
+          value: "8080"
+        - name: RESPONSE_BODY
+          value: "C"
