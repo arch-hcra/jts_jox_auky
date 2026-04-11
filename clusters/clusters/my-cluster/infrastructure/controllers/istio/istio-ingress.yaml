@@ -19,14 +19,12 @@ spec:
   releaseName: istio-ingressgateway
   install:
     createNamespace: false
-    remediation:
-      retries: 3
+  remediation:
+    retries: 3
   upgrade:
     remediation:
       retries: 3
   values:
-    image:
-      repository: istio/proxyv2
-      tag: 1.18.2
+    name: istio-ingressgateway
     service:
       type: NodePort
