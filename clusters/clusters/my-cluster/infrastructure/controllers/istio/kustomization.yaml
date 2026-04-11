@@ -6,4 +6,3 @@ resources:
   - istio-ingress.yaml
   - namespace.yaml
   - istio-base.yaml
-  - IstioOperator.yaml
