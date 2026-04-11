@@ -19,11 +19,6 @@ spec:
   releaseName: istio-ingressgateway
   install:
     createNamespace: false
-  remediation:
-    retries: 3
-  upgrade:
-    remediation:
-      retries: 3
   values:
     name: istio-ingressgateway
     service:
