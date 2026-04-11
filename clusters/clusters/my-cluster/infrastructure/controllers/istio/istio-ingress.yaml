@@ -25,15 +25,14 @@ spec:
     remediation:
       retries: 3
   values:
-    name: istio-ingressgateway
     service:
       type: NodePort
-    ports:
-      - name: http
-        port: 80
-        nodePort: 30080
-        targetPort: 8080
-      - name: https
-        port: 443
-        nodePort: 30443
-        targetPort: 8443
+      ports:
+        - name: http
+          port: 80
+          nodePort: 30080
+          targetPort: 8080
+        - name: https
+          port: 443
+          nodePort: 30443
+          targetPort: 8443
