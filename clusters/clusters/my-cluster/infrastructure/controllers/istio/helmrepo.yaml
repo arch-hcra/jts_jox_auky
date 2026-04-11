@@ -1,8 +1,9 @@
-apiVersion: source.toolkit.fluxcd.io/v1
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
   name: istio
   namespace: flux-system
 spec:
-  interval: 10m
-  url: https://istio-release.storage.googleapis.com/charts
+  type: oci
+  interval: 60m
+  url: oci://ghcr.io/istio-release/charts

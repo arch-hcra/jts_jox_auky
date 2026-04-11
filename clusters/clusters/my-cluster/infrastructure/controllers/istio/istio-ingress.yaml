@@ -4,20 +4,27 @@ metadata:
   name: istio-ingressgateway
   namespace: flux-system
 spec:
-  interval: 5m
-  targetNamespace: istio-system
   dependsOn:
     - name: istiod
-      namespace: flux-system
+  interval: 10m
   chart:
     spec:
       chart: gateway
-      version: "1.23.0"
+      version: "1.22.0"
       sourceRef:
         kind: HelmRepository
         name: istio
         namespace: flux-system
   values:
-    replicaCount: 1
+    name: istio-ingressgateway
     service:
       type: NodePort
+      ports:
+        - name: http
+          port: 80
+          nodePort: 30080
+          targetPort: 8080
+        - name: https
+          port: 443
+          nodePort: 30443
+          targetPort: 8443
