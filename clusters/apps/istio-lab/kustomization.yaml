@@ -12,4 +12,4 @@ resources:
 - 05-circuit-b.yaml
 - 06-ratelimit-c.yaml
 - 07-deny-all.yaml
-- 08
+- 08-allow-a-to-b.yaml
